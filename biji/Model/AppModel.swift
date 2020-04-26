@@ -137,6 +137,11 @@ class AppModel {
         NSWorkspace.shared.open(URL(string: copyrightUrl)!)
     }
     
+    func openCacheDirectory() {
+        let path = (ImageCache.default.cachePath(forKey: "") as NSString).deletingLastPathComponent
+        NSWorkspace.shared.openFile(path)
+    }
+    
     var appVersion: String {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }

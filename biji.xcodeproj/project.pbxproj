@@ -8,20 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		CB8550C82453D2BD00CB4D83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */; };
-		CB8550CB2453D3AB00CB4D83 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CB8550CA2453D3AB00CB4D83 /* Alamofire */; };
 		CB8550CE2453D40100CB4D83 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CB8550CD2453D40100CB4D83 /* KingfisherSwiftUI */; };
+		CB8550D024553D1400CB4D83 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8550CF24553D1400CB4D83 /* PreferenceManager.swift */; };
 		CBCBC4682452B1A500F4EDCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBC4672452B1A500F4EDCE /* AppDelegate.swift */; };
 		CBCBC46A2452B1A500F4EDCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBC4692452B1A500F4EDCE /* ContentView.swift */; };
 		CBCBC46C2452B1A500F4EDCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCBC46B2452B1A500F4EDCE /* Assets.xcassets */; };
 		CBCBC46F2452B1A500F4EDCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCBC46E2452B1A500F4EDCE /* Preview Assets.xcassets */; };
 		CBCBC4722452B1A500F4EDCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCBC4702452B1A500F4EDCE /* Main.storyboard */; };
 		CBCBC47E2452B2DE00F4EDCE /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBC47D2452B2DE00F4EDCE /* StatusBarController.swift */; };
-		CBCBC4822452C51000F4EDCE /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBC4812452C51000F4EDCE /* AppViewModel.swift */; };
+		CBCBC4822452C51000F4EDCE /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBC4812452C51000F4EDCE /* AppModel.swift */; };
 		CBCBC4842452C6F700F4EDCE /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBC4832452C6F700F4EDCE /* DataItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CB8550CF24553D1400CB4D83 /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		CBCBC4642452B1A500F4EDCE /* biji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCBC4672452B1A500F4EDCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBCBC4692452B1A500F4EDCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,7 +32,7 @@
 		CBCBC4732452B1A500F4EDCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBCBC4742452B1A500F4EDCE /* biji.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = biji.entitlements; sourceTree = "<group>"; };
 		CBCBC47D2452B2DE00F4EDCE /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
-		CBCBC4812452C51000F4EDCE /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		CBCBC4812452C51000F4EDCE /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		CBCBC4832452C6F700F4EDCE /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +42,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB8550CE2453D40100CB4D83 /* KingfisherSwiftUI in Frameworks */,
-				CB8550CB2453D3AB00CB4D83 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,9 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				CBCBC47D2452B2DE00F4EDCE /* StatusBarController.swift */,
-				CBCBC4812452C51000F4EDCE /* AppViewModel.swift */,
+				CBCBC4812452C51000F4EDCE /* AppModel.swift */,
 				CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */,
 				CBCBC4832452C6F700F4EDCE /* DataItem.swift */,
+				CB8550CF24553D1400CB4D83 /* PreferenceManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,7 +132,6 @@
 			);
 			name = biji;
 			packageProductDependencies = (
-				CB8550CA2453D3AB00CB4D83 /* Alamofire */,
 				CB8550CD2453D40100CB4D83 /* KingfisherSwiftUI */,
 			);
 			productName = biji;
@@ -163,7 +163,6 @@
 			);
 			mainGroup = CBCBC45B2452B1A400F4EDCE;
 			packageReferences = (
-				CB8550C92453D3AB00CB4D83 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CB8550CC2453D40100CB4D83 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CBCBC4652452B1A500F4EDCE /* Products */;
@@ -194,10 +193,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB8550C82453D2BD00CB4D83 /* NetworkManager.swift in Sources */,
+				CB8550D024553D1400CB4D83 /* PreferenceManager.swift in Sources */,
 				CBCBC46A2452B1A500F4EDCE /* ContentView.swift in Sources */,
 				CBCBC47E2452B2DE00F4EDCE /* StatusBarController.swift in Sources */,
 				CBCBC4842452C6F700F4EDCE /* DataItem.swift in Sources */,
-				CBCBC4822452C51000F4EDCE /* AppViewModel.swift in Sources */,
+				CBCBC4822452C51000F4EDCE /* AppModel.swift in Sources */,
 				CBCBC4682452B1A500F4EDCE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = biji/biji.entitlements;
+				CODE_SIGN_ENTITLEMENTS = biji/Main/biji.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"biji/Preview Content\"";
@@ -344,6 +344,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.yuboqin.biji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -354,7 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = biji/biji.entitlements;
+				CODE_SIGN_ENTITLEMENTS = biji/Main/biji.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"biji/Preview Content\"";
@@ -365,6 +366,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.yuboqin.biji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -395,14 +397,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CB8550C92453D3AB00CB4D83 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.0;
-			};
-		};
 		CB8550CC2453D40100CB4D83 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -414,11 +408,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CB8550CA2453D3AB00CB4D83 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CB8550C92453D3AB00CB4D83 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
 		CB8550CD2453D40100CB4D83 /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CB8550CC2453D40100CB4D83 /* XCRemoteSwiftPackageReference "Kingfisher" */;

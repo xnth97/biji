@@ -62,6 +62,11 @@ struct ContentView: View {
                     }) {
                         Text("Refresh")
                     }
+                    Button(action: {
+                        AppModel.shared.openCacheDirectory()
+                    }) {
+                        Text("Open cache directory")
+                    }
                     VStack {
                         Divider()
                     }

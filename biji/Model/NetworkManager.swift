@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import Kingfisher
 
 struct NetworkManager {
@@ -22,19 +21,44 @@ struct NetworkManager {
             "n": "\(days)",
             "locale": locale,
         ]
-        AF.request(NetworkManager.baseUrl, method: .get, parameters: params).response { response in
-            guard let data = response.data else {
-                completion([])
+        
+        let mainAsyncCompletion: ([ImageItem]) -> Void = { imageItems in
+            DispatchQueue.main.async {
+                completion(imageItems)
+            }
+        }
+
+        let urlComponent = NSURLComponents(string: NetworkManager.baseUrl)
+        var queryItems: [URLQueryItem] = []
+        for (key, val) in params {
+            queryItems.append(URLQueryItem(name: key, value: val))
+        }
+        urlComponent?.queryItems = queryItems
+        guard let url = urlComponent?.url else {
+            mainAsyncCompletion([])
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let _ = error {
+                mainAsyncCompletion([])
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode), let data = data else {
+                mainAsyncCompletion([])
                 return
             }
             let jsonDecoder = JSONDecoder()
             do {
                 let response = try jsonDecoder.decode(ResponseItem.self, from: data)
-                completion(response.images)
+                mainAsyncCompletion(response.images)
             } catch {
-                completion([])
+                mainAsyncCompletion([])
             }
         }
+        task.resume()
     }
     
     static func getImageUrl(imageUrl: String) -> String {
