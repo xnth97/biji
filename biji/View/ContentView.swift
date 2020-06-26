@@ -12,6 +12,7 @@ import KingfisherSwiftUI
 struct ContentView: View {
     
     @ObservedObject var viewModel: AppViewModel
+    @ObservedObject var preference = PreferenceManager.shared
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16.0) {
@@ -42,6 +43,13 @@ struct ContentView: View {
                 .font(.body)
             Spacer()
             HStack {
+                if !preference.setWallpaperAutomatically {
+                    Button(action: {
+                        AppModel.shared.setAsWallpaper()
+                    }, label: {
+                        Text("Set As Wallpaper")
+                    })
+                }
                 Spacer()
                 MenuButton(label: Image("settings").frame(width: 48)) {
                     Button(action: {}) {
@@ -63,10 +71,10 @@ struct ContentView: View {
                         Text("Refresh")
                     }
                     Button(action: {
-                        AppModel.shared.openCacheDirectory()
-                    }) {
-                        Text("Open cache directory")
-                    }
+                        AppModel.shared.showPreferenceWindow()
+                    }, label: {
+                        Text("Preferences")
+                    })
                     VStack {
                         Divider()
                     }

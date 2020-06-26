@@ -19,8 +19,8 @@ Unofficial Bing wallpaper app for macOS built in SwiftUI
 
 - [ ] Get an icon
 - [ ] I18n
-- [ ] Cache management
-- [ ] Preferences window
+- [x] Cache management
+- [x] Preferences window
 - [ ] Launch on login
 
 ## License

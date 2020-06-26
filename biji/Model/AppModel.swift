@@ -9,6 +9,7 @@
 import Cocoa
 import Combine
 import Kingfisher
+import SwiftUI
 
 class AppViewModel: ObservableObject {
     @Published var title: String
@@ -54,6 +55,20 @@ class AppModel {
     
     private let updateChecker = NSBackgroundActivityScheduler(identifier: "io.yuboqin.biji.updateChecker")
     
+    private lazy var preferenceWindow: NSWindow = {
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 360),
+            styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView],
+            backing: .buffered,
+            defer: false)
+        window.contentView = NSHostingView(rootView: PreferenceView())
+        window.center()
+        window.setFrameAutosaveName("Preferences")
+        window.title = "Preferences"
+        window.isReleasedWhenClosed = false
+        return window
+    }()
+    
     init() {
         commonInit()
         refresh()
@@ -65,7 +80,7 @@ class AppModel {
         ImageCache.default.diskStorage.config.expiration = .days(30)
         
         updateChecker.repeats = true
-        updateChecker.interval = 60 * 60 * 4
+        updateChecker.interval = PreferenceManager.shared.autoUpdateThreshold * 60 * 60
         updateChecker.schedule { [weak self] completion in
             guard let strongSelf = self, strongSelf.imageItems.count > 0, let latestDate = Int(strongSelf.imageItems[0].startDate) else {
                 return
@@ -95,10 +110,12 @@ class AppModel {
         viewModel.currentIndex = index + 1
         viewModel.total = imageItems.count
         
-        setAsWallpaper()
+        if PreferenceManager.shared.setWallpaperAutomatically {
+            setAsWallpaper()
+        }
     }
     
-    private func setAsWallpaper() {
+    func setAsWallpaper() {
         NetworkManager.requestImage(url: viewModel.imageUrl, completion: { localUrl in
             guard let localUrl = localUrl, let screen = NSScreen.main else {
                 return
@@ -112,7 +129,7 @@ class AppModel {
     }
     
     func refresh(completion: (() -> Void)? = nil) {
-        NetworkManager.requestBingWallpaper { [weak self] imageItems in
+        NetworkManager.requestBingWallpaper(locale: PreferenceManager.shared.locale) { [weak self] imageItems in
             self?.imageItems = imageItems
             self?.loadViewModel(withImageItemAtIndex: 0)
             completion?()
@@ -140,6 +157,10 @@ class AppModel {
     func openCacheDirectory() {
         let path = (ImageCache.default.cachePath(forKey: "") as NSString).deletingLastPathComponent
         NSWorkspace.shared.openFile(path)
+    }
+    
+    func showPreferenceWindow() {
+        preferenceWindow.makeKeyAndOrderFront(nil)
     }
     
     var appVersion: String {

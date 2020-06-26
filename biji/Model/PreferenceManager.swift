@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 @propertyWrapper
 struct PreferenceStorage<T> {
@@ -30,6 +31,7 @@ struct PreferenceStorage<T> {
         set {
             value = newValue
             userDefaults.set(value, forKey: keyName)
+            PreferenceManager.shared.objectWillChange.send()
         }
         
         get {
@@ -39,9 +41,20 @@ struct PreferenceStorage<T> {
     
 }
 
-class PreferenceManager {
+class PreferenceManager: ObservableObject {
     
     static let shared = PreferenceManager()
+    
+    let objectWillChange = PassthroughSubject<Void, Never>()
+    
+    @PreferenceStorage<Bool>(keyName: "set_wallpaper_automatically", defaultValue: true)
+    var setWallpaperAutomatically: Bool
+    
+    @PreferenceStorage<Double>(keyName: "auto_update_threshold", defaultValue: 4.0)
+    var autoUpdateThreshold: Double
+    
+    @PreferenceStorage<String>(keyName: "locale", defaultValue: "en-us")
+    var locale: String
     
     private init() {
         

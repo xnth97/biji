@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB57EE1B24A4824300100BBB /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB57EE1A24A4824300100BBB /* PreferenceView.swift */; };
 		CB8550C82453D2BD00CB4D83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */; };
 		CB8550CE2453D40100CB4D83 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CB8550CD2453D40100CB4D83 /* KingfisherSwiftUI */; };
 		CB8550D024553D1400CB4D83 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8550CF24553D1400CB4D83 /* PreferenceManager.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB57EE1A24A4824300100BBB /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CB8550CF24553D1400CB4D83 /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		CBCBC4642452B1A500F4EDCE /* biji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biji.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				CBCBC4692452B1A500F4EDCE /* ContentView.swift */,
+				CB57EE1A24A4824300100BBB /* PreferenceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB8550C82453D2BD00CB4D83 /* NetworkManager.swift in Sources */,
+				CB57EE1B24A4824300100BBB /* PreferenceView.swift in Sources */,
 				CB8550D024553D1400CB4D83 /* PreferenceManager.swift in Sources */,
 				CBCBC46A2452B1A500F4EDCE /* ContentView.swift in Sources */,
 				CBCBC47E2452B2DE00F4EDCE /* StatusBarController.swift in Sources */,
