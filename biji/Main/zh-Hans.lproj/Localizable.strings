@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  biji
+
+  Created by Yubo Qin on 6/27/20.
+  Copyright © 2020 Yubo Qin. All rights reserved.
+*/
+
+// Main app
+
+"Biji" = "必几";
+"Previous" = "上一张";
+"Next" = "下一张";
+"Set As Wallpaper" = "设置为壁纸";
+"View on Bing" = "在必应上查看";
+"Refresh" = "刷新";
+"Last updated: " = "上次更新：";
+"Preferences" = "偏好设置";
+"Quit" = "退出";
+
+// Preferences
+
+"Change wallpaper automatically" = "自动更换壁纸";
+"Locale" = "区域";
+"Auto update time interval" = "自动更新时间间隔";
+"hours" = "小时";
+"Image cache" = "图片缓存";
+"Open cache directory" = "打开缓存目录";
+"Clear cache" = "清理缓存";
+"This action cannot be undone." = "此动作无法撤销。";
+"Clear" = "清理";
+

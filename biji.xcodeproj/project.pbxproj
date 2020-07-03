@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB4DD71624A6BEA600512D8D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4DD71524A6BEA600512D8D /* Utils.swift */; };
+		CB4DD71B24A836F800512D8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB4DD71D24A836F800512D8D /* InfoPlist.strings */; };
+		CB4DD72B24A838D400512D8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB4DD72D24A838D400512D8D /* Localizable.strings */; };
 		CB57EE1B24A4824300100BBB /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB57EE1A24A4824300100BBB /* PreferenceView.swift */; };
 		CB8550C82453D2BD00CB4D83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */; };
 		CB8550CE2453D40100CB4D83 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CB8550CD2453D40100CB4D83 /* KingfisherSwiftUI */; };
@@ -22,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB4DD71524A6BEA600512D8D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CB4DD71824A836A600512D8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		CB4DD71C24A836F800512D8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		CB4DD71E24A8370300512D8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CB4DD72C24A838D400512D8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		CB57EE1A24A4824300100BBB /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CB8550CF24553D1400CB4D83 /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
@@ -73,6 +81,7 @@
 				CBCBC47A2452B2B300F4EDCE /* Model */,
 				CBCBC47B2452B2BD00F4EDCE /* View */,
 				CBCBC4732452B1A500F4EDCE /* Info.plist */,
+				CB4DD71D24A836F800512D8D /* InfoPlist.strings */,
 				CBCBC46D2452B1A500F4EDCE /* Preview Content */,
 			);
 			path = biji;
@@ -94,6 +103,7 @@
 				CB8550C72453D2BD00CB4D83 /* NetworkManager.swift */,
 				CBCBC4832452C6F700F4EDCE /* DataItem.swift */,
 				CB8550CF24553D1400CB4D83 /* PreferenceManager.swift */,
+				CB4DD71524A6BEA600512D8D /* Utils.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,6 +124,7 @@
 				CBCBC46B2452B1A500F4EDCE /* Assets.xcassets */,
 				CBCBC4702452B1A500F4EDCE /* Main.storyboard */,
 				CBCBC4742452B1A500F4EDCE /* biji.entitlements */,
+				CB4DD72D24A838D400512D8D /* Localizable.strings */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -148,7 +159,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Yubo Qin";
 				TargetAttributes = {
 					CBCBC4632452B1A500F4EDCE = {
@@ -163,6 +174,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = CBCBC45B2452B1A400F4EDCE;
 			packageReferences = (
@@ -182,7 +194,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB4DD72B24A838D400512D8D /* Localizable.strings in Resources */,
 				CBCBC4722452B1A500F4EDCE /* Main.storyboard in Resources */,
+				CB4DD71B24A836F800512D8D /* InfoPlist.strings in Resources */,
 				CBCBC46F2452B1A500F4EDCE /* Preview Assets.xcassets in Resources */,
 				CBCBC46C2452B1A500F4EDCE /* Assets.xcassets in Resources */,
 			);
@@ -197,6 +211,7 @@
 			files = (
 				CB8550C82453D2BD00CB4D83 /* NetworkManager.swift in Sources */,
 				CB57EE1B24A4824300100BBB /* PreferenceView.swift in Sources */,
+				CB4DD71624A6BEA600512D8D /* Utils.swift in Sources */,
 				CB8550D024553D1400CB4D83 /* PreferenceManager.swift in Sources */,
 				CBCBC46A2452B1A500F4EDCE /* ContentView.swift in Sources */,
 				CBCBC47E2452B2DE00F4EDCE /* StatusBarController.swift in Sources */,
@@ -209,10 +224,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CB4DD71D24A836F800512D8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB4DD71C24A836F800512D8D /* zh-Hans */,
+				CB4DD71E24A8370300512D8D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CB4DD72D24A838D400512D8D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB4DD72C24A838D400512D8D /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		CBCBC4702452B1A500F4EDCE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CBCBC4712452B1A500F4EDCE /* Base */,
+				CB4DD71824A836A600512D8D /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -224,6 +257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -284,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -338,9 +373,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = biji/Main/biji.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0626;
 				DEVELOPMENT_ASSET_PATHS = "\"biji/Preview Content\"";
+				DEVELOPMENT_TEAM = 66YTFN7WTB;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = biji/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,7 +386,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.yuboqin.biji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -360,9 +398,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = biji/Main/biji.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0626;
 				DEVELOPMENT_ASSET_PATHS = "\"biji/Preview Content\"";
+				DEVELOPMENT_TEAM = 66YTFN7WTB;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = biji/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -370,7 +411,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.yuboqin.biji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

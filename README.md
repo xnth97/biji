@@ -7,7 +7,8 @@ Unofficial Bing wallpaper app for macOS built in SwiftUI
 * Menu bar app built in SwiftUI
 * Automatically check and fetch latest wallpapers from Bing
 * View original Bing page
-* Image cache
+* Switch among supported locales
+* Image cache management
 * Dark mode
 * Dependency management by Swift Package Manager
 
@@ -17,8 +18,8 @@ Unofficial Bing wallpaper app for macOS built in SwiftUI
 
 ## Todo
 
-- [ ] Get an icon
-- [ ] I18n
+- [x] Get an icon
+- [x] I18n
 - [x] Cache management
 - [x] Preferences window
 - [ ] Launch on login

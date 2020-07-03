@@ -9,39 +9,41 @@
 import Foundation
 import Combine
 
-@propertyWrapper
-struct PreferenceStorage<T> {
+class PreferenceManager: ObservableObject {
     
-    var value: T
-    private let keyName: String
-    private let defaultValue: T
-    private let userDefaults = UserDefaults.standard
-    
-    init(keyName: String, defaultValue: T) {
-        self.keyName = keyName
-        self.defaultValue = defaultValue
-        if let val = userDefaults.object(forKey: keyName) as? T {
-            value = val
-        } else {
-            value = defaultValue
-        }
-    }
-    
-    var wrappedValue: T {
-        set {
-            value = newValue
-            userDefaults.set(value, forKey: keyName)
-            PreferenceManager.shared.objectWillChange.send()
+    @propertyWrapper
+    struct PreferenceStorage<T> {
+        
+        var value: T
+        private let keyName: String
+        private let defaultValue: T
+        private let userDefaults = UserDefaults.standard
+        
+        init(keyName: String, defaultValue: T) {
+            self.keyName = keyName
+            self.defaultValue = defaultValue
+            if let val = userDefaults.object(forKey: keyName) as? T {
+                value = val
+            } else {
+                value = defaultValue
+            }
         }
         
-        get {
-            value
+        var wrappedValue: T {
+            set {
+                value = newValue
+                userDefaults.set(value, forKey: keyName)
+                DispatchQueue.main.async {
+                    PreferenceManager.shared.objectWillChange.send()
+                }
+            }
+            
+            get {
+                value
+            }
         }
+        
     }
-    
-}
-
-class PreferenceManager: ObservableObject {
     
     static let shared = PreferenceManager()
     
@@ -51,15 +53,25 @@ class PreferenceManager: ObservableObject {
     var setWallpaperAutomatically: Bool
     
     @PreferenceStorage<Double>(keyName: "auto_update_threshold", defaultValue: 4.0)
-    var autoUpdateThreshold: Double
+    var autoUpdateThreshold: Double {
+        didSet {
+            AppModel.shared.updateChecker.interval = autoUpdateThreshold * 60 * 60
+        }
+    }
     
-    @PreferenceStorage<String>(keyName: "locale", defaultValue: "en-us")
-    var locale: String
+    @PreferenceStorage<String>(keyName: "locale", defaultValue: Utils.getInitialDefaultLocale())
+    var locale: String {
+        didSet {
+            AppModel.shared.refresh()
+        }
+    }
+    
+    @PreferenceStorage<Double>(keyName: "last_updated", defaultValue: 0.0)
+    var lastUpdated: Double
     
     private init() {
         
     }
-    
-    
+
     
 }

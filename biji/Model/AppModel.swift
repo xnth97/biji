@@ -53,7 +53,7 @@ class AppModel {
     
     private var imageItems: [ImageItem] = []
     
-    private let updateChecker = NSBackgroundActivityScheduler(identifier: "io.yuboqin.biji.updateChecker")
+    let updateChecker = NSBackgroundActivityScheduler(identifier: "io.yuboqin.biji.updateChecker")
     
     private lazy var preferenceWindow: NSWindow = {
         let window = NSWindow(
@@ -64,7 +64,7 @@ class AppModel {
         window.contentView = NSHostingView(rootView: PreferenceView())
         window.center()
         window.setFrameAutosaveName("Preferences")
-        window.title = "Preferences"
+        window.title = NSLocalizedString("Preferences", comment: "")
         window.isReleasedWhenClosed = false
         return window
     }()
@@ -157,6 +157,10 @@ class AppModel {
     func openCacheDirectory() {
         let path = (ImageCache.default.cachePath(forKey: "") as NSString).deletingLastPathComponent
         NSWorkspace.shared.openFile(path)
+    }
+    
+    func clearDiskCache(completion: (() -> Void)? = nil) {
+        ImageCache.default.clearDiskCache(completion: completion)
     }
     
     func showPreferenceWindow() {

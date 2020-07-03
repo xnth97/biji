@@ -19,7 +19,7 @@ struct NetworkManager {
             "format": "js",
             "idx": "0",
             "n": "\(days)",
-            "locale": locale,
+            "mkt": locale,
         ]
         
         let mainAsyncCompletion: ([ImageItem]) -> Void = { imageItems in
@@ -54,6 +54,7 @@ struct NetworkManager {
             do {
                 let response = try jsonDecoder.decode(ResponseItem.self, from: data)
                 mainAsyncCompletion(response.images)
+                PreferenceManager.shared.lastUpdated = Date().timeIntervalSince1970
             } catch {
                 mainAsyncCompletion([])
             }

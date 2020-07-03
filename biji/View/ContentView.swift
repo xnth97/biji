@@ -20,14 +20,14 @@ struct ContentView: View {
                 Button(action: {
                     AppModel.shared.previousTapped()
                 }) {
-                    Text("Previous").frame(width: 80)
+                    Text(NSLocalizedString("Previous", comment: "")).frame(width: 80)
                 }
                 .disabled(!viewModel.previousEnabled)
                 Text("\(viewModel.currentIndex) / \(viewModel.total)")
                 Button(action: {
                     AppModel.shared.nextTapped()
                 }) {
-                    Text("Next").frame(width: 80)
+                    Text(NSLocalizedString("Next", comment: "")).frame(width: 80)
                 }
                 .disabled(!viewModel.nextEnabled)
             }
@@ -47,13 +47,13 @@ struct ContentView: View {
                     Button(action: {
                         AppModel.shared.setAsWallpaper()
                     }, label: {
-                        Text("Set As Wallpaper")
+                        Text(NSLocalizedString("Set As Wallpaper", comment: ""))
                     })
                 }
                 Spacer()
                 MenuButton(label: Image("settings").frame(width: 48)) {
                     Button(action: {}) {
-                        Text("Biji \(AppModel.shared.appVersion)")
+                        Text("\(NSLocalizedString("Biji", comment: "")) \(AppModel.shared.appVersion)")
                     }
                     .disabled(true)
                     VStack {
@@ -63,17 +63,25 @@ struct ContentView: View {
                     Button(action: {
                         AppModel.shared.openCopyright()
                     }) {
-                        Text("View on Bing")
+                        Text(NSLocalizedString("View on Bing", comment: ""))
                     }
                     Button(action: {
                         AppModel.shared.refresh()
                     }) {
-                        Text("Refresh")
+                        Text(NSLocalizedString("Refresh", comment: ""))
                     }
+                    Button(action: {}) {
+                        Text("\(NSLocalizedString("Last updated: ", comment: ""))\(Date(timeIntervalSince1970: PreferenceManager.shared.lastUpdated).localizedDescription(dateStyle: .medium, timeStyle: .short))")
+                    }
+                    .disabled(true)
+                    VStack {
+                        Divider()
+                    }
+                    .disabled(true)
                     Button(action: {
                         AppModel.shared.showPreferenceWindow()
                     }, label: {
-                        Text("Preferences")
+                        Text(NSLocalizedString("Preferences", comment: ""))
                     })
                     VStack {
                         Divider()
@@ -82,7 +90,7 @@ struct ContentView: View {
                     Button(action: {
                         AppModel.shared.terminate()
                     }) {
-                        Text("Quit")
+                        Text(NSLocalizedString("Quit", comment: ""))
                     }
                 }
                 .menuButtonStyle(BorderlessButtonMenuButtonStyle())
